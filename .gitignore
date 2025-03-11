@@ -12,9 +12,9 @@ dist
 dist-ssr
 *.local
 
+# iam realy sure you need .vscode to control cmd msvc
+
 # Editor directories and files
-.vscode/*
-!.vscode/extensions.json
 .idea
 .DS_Store
 *.suo

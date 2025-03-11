@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Executable",
+            "type": "cppvsdbg", // Menggunakan debugger MSVC
+            "request": "launch",
+            "program": "${workspaceFolder}\\mc_dbController.exe", // Lokasi executable
+            "args": [], // Tambahkan argumen di sini jika diperlukan
+            "stopAtEntry": false, // Tidak berhenti di entry point
+            "cwd": "${workspaceFolder}", // Working directory
+            "environment": [],
+            "console": "integratedTerminal" // Menampilkan output di terminal terintegrasi
+        }
+    ]
+}

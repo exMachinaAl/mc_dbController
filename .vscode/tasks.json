@@ -1,0 +1,45 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build all files",
+            "type": "shell",
+            "command": "cl.exe",
+            "args": [
+                "/EHsc",
+                "${workspaceFolder}\\*.cpp", // Semua file .cpp dalam folder proyek
+                "/Fo:${workspaceFolder}\\build\\", // Folder output untuk file .obj
+                "/Fe:${workspaceFolder}\\${fileBasenameNoExtension}.exe", // Output file eksekusi
+                "/I", "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.38.33130/include",
+                "/I", "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22621.0/ucrt",
+                "/I", "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22621.0/shared",
+                "/I", "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22621.0/um",
+
+                /* letakkan path library yang dibutuhkan dibawah ini: external library */
+                "/I", "X:/almanac/_Library_Cpp/boost_1_84_0",  // Path header Boost
+                "/I", "X:/almanac/_Library_Cpp/boost_1_84_0/boost",
+                "/I", "X:/almanac/_Library_Cpp/mysql_cpp_9.0.0/include",
+
+
+                "/link",
+                "/LIBPATH:C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.38.33130/lib/x64",
+                "/LIBPATH:C:/Program Files (x86)/Windows Kits/10/Lib/10.0.22621.0/um/x64",
+                "/LIBPATH:C:/Program Files (x86)/Windows Kits/10/Lib/10.0.22621.0/ucrt/x64",
+
+                /* untuk linker c++, letakkan path yang dibutuhkan untuk extra library */
+                "/LIBPATH:X:/almanac/_Library_Cpp/mysql_cpp_9.0.0/lib64/vs14",
+                "/LIBPATH:X:/almanac/_Library_Cpp/mysql_cpp_9.0.0/lib64",
+                "mysqlcppconn.lib",
+                "/LIBPATH:X:/almanac/_Library_Cpp/boost_1_84_0/stage/lib", // Path library Boost
+                "libboost_filesystem-vc143-mt-s-x64-1_84.lib"
+
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$msCompile"],
+            "detail": "Generated task for organizing .obj files into a folder."
+        }
+    ]
+}
